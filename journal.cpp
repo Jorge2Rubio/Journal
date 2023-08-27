@@ -7,7 +7,7 @@
 //create duplicate file --> soon.
 
 int main(){
-  std::string date, input_filePath, message;
+  std::string date, input_filePath, message, input_fileName;
   try {
 
     mkdir("Journal_Messages");
@@ -15,14 +15,18 @@ int main(){
     std::cout<<"Date today: ";
     std::getline(std::cin, date);
 
-    filePath.append("Journal_Messages\\" + date + ".txt");
-    std::ofstream fileJournal (filePath);
-
     std::cout<<"Message: ";
     std::getline(std::cin, message);
 
+    std::cout<<"Filename: ";
+    std::getline(std::cin, input_fileName);
+
+    filePath.append("Journal_Messages\\" + input_fileName + ".txt");
+    std::ofstream fileJournal (filePath);
     fileJournal << message;
     fileJournal.close();
+
+
 
   }catch(...){
     std::cout<<"Invalid, try again!";
